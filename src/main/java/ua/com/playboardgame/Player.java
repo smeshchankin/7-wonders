@@ -4,18 +4,18 @@ public class Player {
 
   private final long id;
   private final String name;
-  private long coins;
+  private int coins;
 
   public Player(long id, String name) {
     this.id = id;
     this.name = name;
   }
 
-  public long getCoins() {
+  public int getCoins() {
     return coins;
   }
 
-  public void setCoins(long coins) {
+  public void setCoins(int coins) {
     this.coins = coins;
   }
 

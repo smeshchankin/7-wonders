@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class PlayerTest {
+public class VictoryPointsCalculatorTest {
 
   private Player player;
 
@@ -15,14 +15,8 @@ class PlayerTest {
   }
 
   @Test
-  void testToString() {
-    String expected = Player.class.getSimpleName() + "{id=1, name='John'}";
-    assertEquals(expected, player.toString());
-  }
-
-  @Test
-  void testPlayerCoins() {
-    player.setCoins(1);
-    assertEquals(1, player.getCoins());
+  void testCalculationFor0Coins() {
+    player.setCoins(0);
+    assertEquals(0, VictoryPointsCalculator.calculate(player));
   }
 }
