@@ -1,4 +1,4 @@
-package ua.com.playboardgame;
+package ua.com.playboardgame.entity;
 
 public class Player {
 
