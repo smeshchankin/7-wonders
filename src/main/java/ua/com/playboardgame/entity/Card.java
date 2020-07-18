@@ -3,6 +3,7 @@ package ua.com.playboardgame.entity;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import ua.com.playboardgame.effect.Effect;
 
 public class Card {
 
