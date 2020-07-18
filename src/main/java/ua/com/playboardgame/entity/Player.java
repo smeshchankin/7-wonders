@@ -1,6 +1,7 @@
 package ua.com.playboardgame.entity;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Player {
@@ -39,5 +40,22 @@ public class Player {
   @Override
   public String toString() {
     return "Player{" + "id=" + id + ", name='" + name + '\'' + '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Player player = (Player) o;
+    return id == player.id;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id);
   }
 }
