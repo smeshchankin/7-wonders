@@ -1,11 +1,18 @@
 package ua.com.playboardgame.engine;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import ua.com.playboardgame.entity.Card;
 import ua.com.playboardgame.entity.Player;
+import ua.com.playboardgame.service.CardService;
 
 class GameTest {
   private Game game;
@@ -58,7 +65,61 @@ class GameTest {
     assertArrayEquals(expected, actual, "Adding more than 7 players");
   }
 
+  @Test
+  void testGetCardsByAge() {
+    List<Card> mockResult = Arrays.asList(
+        buildCard(1, "Lumber Yard"),
+        buildCard(1, "Stone Pit"),
+        buildCard(1, "Glassworks"),
+        buildCard(1, "Marketplace"),
+        buildCard(1, "Baths"),
+        buildCard(1, "Barracks")
+    );
+    initGame(mockResult);
+    List<Card> actual = game.getCardsByAge(1);
+    assertEquals(mockResult, actual, "Get cards by Age I");
+  }
+
+  @Test
+  void testGetCardsByAgeFromAll() {
+    List<Card> mockResult = Arrays.asList(
+        buildCard(1, "Lumber Yard"),
+        buildCard(1, "Stone Pit"),
+        buildCard(1, "Glassworks"),
+        buildCard(1, "Marketplace"),
+        buildCard(1, "Baths"),
+        buildCard(1, "Barracks"),
+        buildCard(2, "Quarry"),
+        buildCard(2, "Loom"),
+        buildCard(2, "Statue"),
+        buildCard(2, "Walls"),
+        buildCard(3, "Pantheon"),
+        buildCard(3, "Arsenal")
+    );
+    initGame(mockResult);
+    for (int i = 0; i < 3; ++i) {
+      final int age = i + 1;
+      List<Card> actual = game.getCardsByAge(age);
+      List<Card> expected = mockResult.stream()
+        .filter(card -> card.getAge() == age)
+        .collect(Collectors.toList());
+      assertEquals(expected, actual, "Get cards by Age " + age);
+    }
+  }
+
   private boolean addPlayer(long id, String name) {
     return game.addPlayer(new Player(id, name));
+  }
+
+  private Card buildCard(int age, String name) {
+    return new Card(age, name);
+  }
+
+  private void initGame(List<Card> allCards) {
+    CardService cardServiceMock = Mockito.mock(CardService.class);
+    Mockito.when(cardServiceMock.load()).thenReturn(allCards);
+
+    game.setCardService(cardServiceMock);
+    game.init();
   }
 }
