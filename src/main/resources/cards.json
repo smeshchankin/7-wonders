@@ -1,0 +1,313 @@
+[
+  {
+    "age": 1,
+    "name": "Lumber Yard",
+    "frequency": [ 3, 4 ],
+    "color": "brown",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "wood"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Stone Pit",
+    "frequency": [ 3, 5 ],
+    "color": "brown",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "stone"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Clay Pool",
+    "frequency": [ 3, 5 ],
+    "color": "brown",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "clay"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Ore Vein",
+    "frequency": [ 3, 4 ],
+    "color": "brown",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "ore"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Tree Farm",
+    "frequency": [ 6 ],
+    "color": "brown",
+    "cost": {
+      "type": "coins",
+      "value": "1"
+    },
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "wood || clay"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Excavation",
+    "frequency": [ 4 ],
+    "color": "brown",
+    "cost": {
+      "type": "coins",
+      "value": "1"
+    },
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "stone || clay"
+    }
+  },
+
+
+
+  {
+    "age": 1,
+    "name": "Glassworks",
+    "frequency": [ 3, 6 ],
+    "color": "gray",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "glass"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Press",
+    "frequency": [ 3, 6 ],
+    "color": "gray",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "papyrus"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Loom",
+    "frequency": [ 3, 6 ],
+    "color": "gray",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "resource",
+      "data": "loom"
+    }
+  },
+
+
+  {
+    "age": 1,
+    "name": "Pawnshop",
+    "frequency": [ 4, 7 ],
+    "color": "blue",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "points",
+      "data": "3"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Baths",
+    "frequency": [ 3, 7 ],
+    "color": "blue",
+    "cost": {
+      "type": "resource",
+      "value": "stone"
+    },
+    "chains": [ "Aqueduct" ],
+    "effect": {
+      "type": "points",
+      "data": "3"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Altar",
+    "frequency": [ 3, 5 ],
+    "color": "blue",
+    "cost": null,
+    "chains": [ "Temple" ],
+    "effect": {
+      "type": "points",
+      "data": "2"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Theater",
+    "frequency": [ 3, 6 ],
+    "color": "blue",
+    "cost": null,
+    "chains": [ "Statue" ],
+    "effect": {
+      "type": "points",
+      "data": "2"
+    }
+  },
+
+  {
+    "age": 1,
+    "name": "Tavern",
+    "frequency": [ 4, 5, 7 ],
+    "color": "yellow",
+    "cost": null,
+    "chains": null,
+    "effect": {
+      "type": "coins",
+      "data": "5"
+    }
+  },
+  {
+    "age": 1,
+    "name": "East Trading Post",
+    "frequency": [ 3, 7 ],
+    "color": "yellow",
+    "cost": null,
+    "chains": [ "Forum" ],
+    "effect": {
+      "type": "fix-price",
+      "data": "brown > right: 1"
+    }
+  },
+  {
+    "age": 1,
+    "name": "West Trading Post",
+    "frequency": [ 3, 7 ],
+    "color": "yellow",
+    "cost": null,
+    "chains": [ "Forum" ],
+    "effect": {
+      "type": "fix-price",
+      "data": "brown > left: 1"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Marketplace",
+    "frequency": [ 3, 6 ],
+    "color": "yellow",
+    "cost": null,
+    "chains": [ "Caravansery" ],
+    "effect": {
+      "type": "fix-price",
+      "data": "grey > both: 1"
+    }
+  },
+
+  {
+    "age": 1,
+    "name": "Stockade",
+    "frequency": [ 3, 7 ],
+    "color": "red",
+    "cost": {
+      "type": "resource",
+      "value": "wood"
+    },
+    "chains": null,
+    "effect": {
+      "type": "military",
+      "data": "1"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Barracks",
+    "frequency": [ 3, 5 ],
+    "color": "red",
+    "cost": {
+      "type": "resource",
+      "value": "ore"
+    },
+    "chains": null,
+    "effect": {
+      "type": "military",
+      "data": "1"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Guard Tower",
+    "frequency": [ 3, 4 ],
+    "color": "red",
+    "cost": {
+      "type": "resource",
+      "value": "clay"
+    },
+    "chains": null,
+    "effect": {
+      "type": "military",
+      "data": "1"
+    }
+  },
+
+  {
+    "age": 1,
+    "name": "Apothecary",
+    "frequency": [ 3, 5 ],
+    "color": "green",
+    "cost": {
+      "type": "resource",
+      "value": "loom"
+    },
+    "chains": [ "Stables", "Dispensary" ],
+    "effect": {
+      "type": "science",
+      "data": "compass"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Workshop",
+    "frequency": [ 3, 7 ],
+    "color": "green",
+    "cost": {
+      "type": "resource",
+      "value": "glass"
+    },
+    "chains": [ "Archery Range", "Laboratory" ],
+    "effect": {
+      "type": "science",
+      "data": "gear"
+    }
+  },
+  {
+    "age": 1,
+    "name": "Scriptorium",
+    "frequency": [ 3, 4 ],
+    "color": "green",
+    "cost": {
+      "type": "resource",
+      "value": "papyrus"
+    },
+    "chains": [ "Courthouse", "Library" ],
+    "effect": {
+      "type": "science",
+      "data": "tablet"
+    }
+  }
+]
