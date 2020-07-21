@@ -5,7 +5,8 @@ public enum JSONType {
   ARRAY("array"),
   STRING("string"),
   NUMBER("number"),
-  BOOLEAN("boolean");
+  BOOLEAN("boolean"),
+  NULL(null);
 
   private String name;
 
