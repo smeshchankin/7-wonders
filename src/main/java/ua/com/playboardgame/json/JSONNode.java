@@ -13,6 +13,7 @@ public class JSONNode {
   }
 
   public JSONNode(String value) {
+    this.type = JSONType.STRING;
     this.value = value;
   }
 
