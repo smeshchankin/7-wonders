@@ -42,10 +42,10 @@ class JSONNodeTest {
     assertEquals(JSONType.OBJECT, json.getType());
     assertNotNull(json.getNodes());
     assertEquals(4, json.getNodes().size());
-    testKeyValue(json, "name", "John");
-    testKeyValue(json, "age", "21");
-    testKeyValue(json, "city", "London");
-    testKeyValue(json, "dev", "true");
+    testKeyValue(json, "name", "John", JSONType.STRING);
+    testKeyValue(json, "age", "21", JSONType.NUMBER);
+    testKeyValue(json, "city", "London", JSONType.STRING);
+    testKeyValue(json, "dev", "true", JSONType.BOOLEAN);
   }
 
   private void testNullObject(JSONNode json) {
@@ -55,9 +55,10 @@ class JSONNodeTest {
     assertEquals(0, json.getNodes().size());
   }
 
-  private void testKeyValue(JSONNode json, String name, String value) {
+  private void testKeyValue(JSONNode json, String name, String value, JSONType type) {
     JSONNode node = json.getNodes().get(name);
     assertNotNull(node);
     assertEquals(value, node.getValue());
+    //assertEquals(type, node.getType());
   }
 }

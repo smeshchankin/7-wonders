@@ -31,8 +31,10 @@ public class JSONNode {
     root.type = JSONType.OBJECT;
     String[] pairs = str.split(",");
     Arrays.stream(pairs).forEach(pair -> {
-      String[] arr = pair.replace("\"", "").split(":");
-      root.nodes.put(arr[0].trim(), new JSONNode(arr[1].trim()));
+      String[] arr = pair.split(":");
+      String key = arr[0].replace("\"", "").trim();
+      String value = arr[1].replace("\"", "").trim();
+      root.nodes.put(key, new JSONNode(value));
     });
 
     return root;
