@@ -12,8 +12,8 @@ public class JSONNode {
   public JSONNode() {
   }
 
-  public JSONNode(String value) {
-    this.type = JSONType.STRING;
+  public JSONNode(Object value, JSONType type) {
+    this.type = type;
     this.value = value;
   }
 
@@ -33,8 +33,42 @@ public class JSONNode {
     Arrays.stream(pairs).forEach(pair -> {
       String[] arr = pair.split(":");
       String key = arr[0].replace("\"", "").trim();
-      String value = arr[1].replace("\"", "").trim();
-      root.nodes.put(key, new JSONNode(value));
+      String val = arr[1].trim();
+      Object value = val;
+
+      JSONType type;
+      if (val.startsWith("\"") && val.endsWith("\"")) {
+        type = JSONType.STRING;
+        value = val.replace("\"", "");
+      } else if (val.startsWith("[") && val.endsWith("]")) {
+        type = JSONType.ARRAY;
+      } else if (val.startsWith("{") && val.endsWith("}")) {
+        type = JSONType.OBJECT;
+      } else if ("null".equals(val)) {
+        type = JSONType.NULL;
+        value = null;
+      } else if ("true".equals(val)) {
+        type = JSONType.BOOLEAN;
+        value = true;
+      } else if ("false".equals(val)) {
+        type = JSONType.BOOLEAN;
+        value = false;
+      } else {
+        try {
+          value = Long.parseLong(val, 10);
+          type = JSONType.NUMBER;
+        } catch (NumberFormatException cause) {
+          try {
+            value = Double.parseDouble(val);
+            type = JSONType.NUMBER;
+          } catch (NumberFormatException exception) {
+            type = JSONType.NULL;
+            System.err.println("Can't parse JSON value = " + val);
+          }
+        }
+      }
+
+      root.nodes.put(key, new JSONNode(value, type));
     });
 
     return root;
