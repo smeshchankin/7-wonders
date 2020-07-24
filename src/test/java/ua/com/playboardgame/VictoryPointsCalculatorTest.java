@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
+import ua.com.playboardgame.effect.ScienceSymbol;
 import ua.com.playboardgame.effect.VictoryPoint;
 import ua.com.playboardgame.entity.Card;
 import ua.com.playboardgame.entity.CardType;
@@ -47,6 +48,13 @@ public class VictoryPointsCalculatorTest {
     assertEquals(21, getPoints());
   }
 
+  @Test
+  void testCalculationForTwoDifferentScienceCards() {
+    player.addCard(buildScienceCard(1, "Apothecary", "compass"));
+    player.addCard(buildScienceCard(1, "Workshop", "gear"));
+    assertEquals(2, getPoints());
+  }
+
   private int getPoints() {
     return VictoryPointsCalculator.calculate(player);
   }
@@ -55,6 +63,12 @@ public class VictoryPointsCalculatorTest {
     Card card = new Card(age, name);
     card.setType(CardType.BLUE);
     card.setEffect(new VictoryPoint(points));
+    return card;
+  }
+
+  private Card buildScienceCard(int age, String name, String symbol) {
+    Card card = new Card(age, name);
+    card.setEffect(new ScienceSymbol(symbol));
     return card;
   }
 }
