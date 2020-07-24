@@ -55,6 +55,40 @@ public class VictoryPointsCalculatorTest {
     assertEquals(2, getPoints());
   }
 
+  @Test
+  void testCalculationForAllByOneScienceCards() {
+    player.addCard(buildScienceCard(1, "Apothecary", "compass"));
+    player.addCard(buildScienceCard(1, "Workshop", "gear"));
+    player.addCard(buildScienceCard(1, "Scriptorium", "table"));
+    assertEquals(10, getPoints());
+  }
+
+  @Test
+  void testCalculationForSingleScienceCard() {
+    player.addCard(buildScienceCard(1, "Scriptorium", "table"));
+    player.addCard(buildScienceCard(2, "Library", "table"));
+    player.addCard(buildScienceCard(2, "School", "table"));
+    player.addCard(buildScienceCard(3, "University", "table"));
+    assertEquals(16, getPoints());
+  }
+
+  @Test
+  void testCalculationForAllScienceCard() {
+    player.addCard(buildScienceCard(1, "Apothecary", "compass"));
+    player.addCard(buildScienceCard(1, "Workshop", "gear"));
+    player.addCard(buildScienceCard(1, "Scriptorium", "table"));
+    player.addCard(buildScienceCard(2, "Library", "table"));
+    player.addCard(buildScienceCard(2, "Laboratory", "gear"));
+    player.addCard(buildScienceCard(2, "Dispensary", "compass"));
+    player.addCard(buildScienceCard(2, "School", "table"));
+    player.addCard(buildScienceCard(3, "University", "table"));
+    player.addCard(buildScienceCard(3, "Observatory", "gear"));
+    player.addCard(buildScienceCard(3, "Lodge", "compass"));
+    player.addCard(buildScienceCard(3, "Study", "gear"));
+    player.addCard(buildScienceCard(3, "Academy", "compass"));
+    assertEquals(16 * 3 + 7 * 4, getPoints());
+  }
+
   private int getPoints() {
     return VictoryPointsCalculator.calculate(player);
   }
