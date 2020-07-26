@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import ua.com.playboardgame.entity.Card;
 import ua.com.playboardgame.entity.Player;
+import ua.com.playboardgame.entity.Wonder;
 import ua.com.playboardgame.service.CardService;
 
 class GameTest {
@@ -108,7 +110,8 @@ class GameTest {
   }
 
   private boolean addPlayer(long id, String name) {
-    return game.addPlayer(new Player(id, name));
+    return game.addPlayer(new Player(id, name,
+      new Wonder("Gizah (A)", null, Collections.emptyList())));
   }
 
   private Card buildCard(int age, String name) {

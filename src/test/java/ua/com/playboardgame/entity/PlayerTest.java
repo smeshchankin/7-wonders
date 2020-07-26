@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,7 +14,8 @@ class PlayerTest {
 
   @BeforeEach
   void init() {
-    player = new Player(1, "John");
+    player = new Player(1, "John",
+      new Wonder("Gizah (A)", null, Collections.emptyList()));
   }
 
   @Test

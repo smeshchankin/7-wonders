@@ -10,10 +10,12 @@ public class Player {
   private final String name;
   private int coins;
   private final Set<Card> cards = new HashSet<>();
+  private final Wonder wonder;
 
-  public Player(long id, String name) {
+  public Player(long id, String name, Wonder wonder) {
     this.id = id;
     this.name = name;
+    this.wonder = wonder;
   }
 
   public int getCoins() {

@@ -2,6 +2,7 @@ package ua.com.playboardgame;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Collections;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,6 +12,7 @@ import ua.com.playboardgame.effect.VictoryPoint;
 import ua.com.playboardgame.entity.Card;
 import ua.com.playboardgame.entity.CardType;
 import ua.com.playboardgame.entity.Player;
+import ua.com.playboardgame.entity.Wonder;
 
 public class VictoryPointsCalculatorTest {
 
@@ -18,7 +20,8 @@ public class VictoryPointsCalculatorTest {
 
   @BeforeEach
   void init() {
-    player = new Player(1, "John");
+    player = new Player(1, "John",
+      new Wonder("Gizah (A)", null, Collections.emptyList()));
   }
 
   @Test
