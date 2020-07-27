@@ -5,6 +5,7 @@ import ua.com.playboardgame.effect.Effect;
 
 public class Stage {
   private int order;
+  private boolean done;
   private List<Cost> cost;
   private Effect effect;
 
@@ -12,6 +13,14 @@ public class Stage {
     this.order = order;
     this.cost = cost;
     this.effect = effect;
+  }
+
+  public boolean isDone() {
+    return done;
+  }
+
+  public void setDone(boolean done) {
+    this.done = done;
   }
 
   public int getOrder() {
