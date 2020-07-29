@@ -1,11 +1,10 @@
 package ua.com.playboardgame.effect;
 
-import ua.com.playboardgame.entity.Cost;
-
-public class Material implements Effect, Product, Cost {
+public enum ProvidersEnum {
+  LEFT("left"), RIGHT("right"), SELF("self");
   private final String name;
 
-  public Material(String name) {
+  ProvidersEnum(String name) {
     this.name = name;
   }
 
