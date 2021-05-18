@@ -48,6 +48,15 @@ class JSONNodeTest {
     testKeyValue(json, "dev", true, JSONType.BOOLEAN);
   }
 
+  @Test
+  void parseNestedObjects() {
+    String str = "{ \"name\": \"John\", \"age\": 21, \"child\": "
+        + "{ \"name\": \"Mary\", \"year\": 2020 }"
+        + "}";
+    JSONNode json = JSONNode.parse(str);
+    System.out.println(json);
+  }
+
   private void testNullObject(JSONNode json) {
     assertNotNull(json);
     assertEquals(JSONType.NULL, json.getType());
